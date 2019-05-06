@@ -1,0 +1,37 @@
+# Linux joystick mappings for Kite SAIO SNES-style controller using joymap 0.4.1 (MUST BE 0.4.1)
+# - currently running timemaster5's build of 0.4.2 and works fine
+#   button "src" values found by running jstest /dev/input/js0
+#   button "button" values for keyboard found in joymap's keys.txt file (joymap-0.4.1/keys.txt)
+#   "vendor" and "product" values found in /proc/bus/input/devices
+# Kite SAIO Gameboy Zero, Arduino LLC Arduino Leonardo, Vendor=2341 Product=8036 Version=0101
+
+# map controller d-pad to arrows
+axis vendor=0x2341 product=0x8036 src=16 target=kbd plus="right" minus="left" flags="trinary"
+axis vendor=0x2341 product=0x8036 src=17 target=kbd plus="down" minus="up" flags="trinary"
+
+# controller X to d
+button vendor=0x2341 product=0x8036 src=3 target=kbd button="d"
+
+# controller A to x
+button vendor=0x2341 product=0x8036 src=0 target=kbd button="x"
+
+# controller Y to s
+#button vendor=0x2341 product=0x8036 src=2 target=kbd button="s"
+
+# controller B to z                         
+button vendor=0x2341 product=0x8036 src=1 target=kbd button="z"
+
+# controller START to v
+button vendor=0x2341 product=0x8036 src=4 target=kbd button="v"
+
+# controller SELECT to c
+#button vendor=0x2341 product=0x8036 src=5 target=kbd button="enter"
+
+#Mapper code device
+button vendor=0x00ff product=0x0000 src=0 target=kbd button="c"
+button vendor=0x00ff product=0x0000 src=1 target=kbd button="esc"
+
+# controller SELECT to script - longpress menu, shortpress select
+script vendor=0x2341 product=0x8036 device=0
+
+code "/home/pi/joymap-0.4.2/pcsx.code"
