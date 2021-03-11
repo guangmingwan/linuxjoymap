@@ -1,5 +1,7 @@
-# Disable -Werror if there are compile errors 
-CFLAGS+=-Wall -Werror -g
+# Disable -Werror if there are compile errors
+CC:=arm-linux-gnueabihf-gcc
+LD:=arm-linux-gnueabihf-ld
+CFLAGS+=-Wall -Werror  -Wno-error=format-overflow -g
 all: loadmap reserve_js
 
 loadmap: loadmap.o dictionary.o mapparser.o programparser.o validkeys.o events.o vm.o devices.o config.o

@@ -1,0 +1,25 @@
+ var i;
+ thread {
+          #wait for first press of the button
+          wait(js0.b[5]);
+          
+          i = 5;
+          while (i>0) {
+             if (!js0.b[5]) {
+               i = 0;
+               b[0]=1;
+               delay(2);
+               b[0]=0;
+             } else {
+               if (i == 1){
+                  b[1] = 1;
+                  delay(2);
+                  b[1] = 0;
+                  i = 0;
+                  wait(!js0.b[5]);
+               }
+                 delay(100);
+             }
+             i--;
+          }
+     }
